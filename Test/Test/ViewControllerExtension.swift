@@ -105,7 +105,7 @@ extension ViewController {
 
         label.translatesAutoresizingMaskIntoConstraints = false
         label.heightAnchor.constraint(equalTo: button["0"]!.heightAnchor).isActive = true
-        let labelBorder = border * 10
+        let labelBorder = border * 15
         label.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -labelBorder).isActive = true
         label.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: labelBorder).isActive = true
         label.bottomAnchor.constraint(equalTo: button[operators.last!]!.topAnchor,

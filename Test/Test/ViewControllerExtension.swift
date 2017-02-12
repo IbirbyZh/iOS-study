@@ -6,28 +6,39 @@
 import UIKit
 
 extension ViewController {
+    func upTouch(btn: UIButton) {
+        label.text = btn.title(for: .normal)!
+    }
+
     func addViews() {
         for char in numbers + operators + menu + [","] {
             button[char] = UIButton()
-            let btn = button[char]!
+            let btn: UIButton = button[char]!
             btn.setTitle(char, for: .normal)
             btn.titleLabel!.font = UIFont(name: "HelveticaNeue-UltraLight", size: 42)!
+            btn.addTarget(self, action: #selector(upTouch(btn: )), for: .touchUpInside)
             rootView.addSubview(btn)
         }
 
         for char in operators {
-            button[char]!.backgroundColor = .orange
-            button[char]!.setTitleColor(.white, for: .normal)
+            let btn: UIButton = button[char]!
+            btn.setBackgroundColor(color: .orange, forState: .normal)
+            btn.setBackgroundColor(color: UIColor.orange.darker()!, forState: .highlighted)
+            btn.setTitleColor(.white, for: .normal)
         }
 
         for char in numbers + [","] {
-            button[char]!.backgroundColor = .lightGray
-            button[char]!.setTitleColor(.black, for: .normal)
+            let btn: UIButton = button[char]!
+            btn.setBackgroundColor(color: .lightGray, forState: .normal)
+            btn.setBackgroundColor(color: UIColor.lightGray.darker()!, forState: .highlighted)
+            btn.setTitleColor(.black, for: .normal)
         }
 
         for char in menu {
-            button[char]!.backgroundColor = .gray
-            button[char]!.setTitleColor(.black, for: .normal)
+            let btn: UIButton = button[char]!
+            btn.setBackgroundColor(color: .gray, forState: .normal)
+            btn.setBackgroundColor(color: UIColor.gray.darker()!, forState: .highlighted)
+            btn.setTitleColor(.black, for: .normal)
         }
 
         label = UILabel()
